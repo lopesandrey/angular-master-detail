@@ -12,8 +12,7 @@ export class CategoryService {
   private apiPath = 'api/categories';
 
   constructor(
-    private http: HttpClient,
-    private header: HttpHeaders
+    private http: HttpClient
   ) { }
 
   getAll(): Observable<Category[]> {
