@@ -9,7 +9,7 @@ import { map, catchError, flatMap } from 'rxjs/operators';
 })
 export class EntryService {
 
-  private apiPath = 'api/Entries';
+  private apiPath = 'api/entries';
 
   constructor(
     private http: HttpClient
@@ -58,13 +58,16 @@ export class EntryService {
   }
 
   private jsonDataToEntries(jsonData: any[]): Entry[] {
-    const Entries: Entry[] = [];
-    jsonData.forEach(element => Entries.push(element as Entry));
-    return Entries;
+    const entries: Entry[] = [];
+    jsonData.forEach(element => {
+      const entry = Object.assign(new Entry(), element);
+      entries.push(entry);
+    });
+    return entries;
   }
 
   private jsonDataToEntry(jsonData: any): Entry {
-    return jsonData as Entry;
+    return Object.assign(new Entry(), jsonData);
   }
 
   private handleError(error: any): Observable<any> {
