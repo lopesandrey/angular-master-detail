@@ -25,7 +25,7 @@ export class EntryListComponent implements OnInit {
     const mustDelete = confirm('Deseja realmente excluir este item?')
     if (mustDelete) {
       this.entryService.delete(entry.id).subscribe(
-        () => this.entries = this.entries.filter(element => element != entry),
+        () => this.entries = this.entries.filter(element => element !== entry),
         () => alert('Erro ao tentar ecluir')
       );
     }
