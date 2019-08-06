@@ -89,7 +89,7 @@
               <label (click)="entryForm.get('paid').setValue(false)" [class.active]="entryForm.get('paid').value == false" class="btn btn-outline-info">Pendente</label>
             </div>
             <div class="text-danger" *ngIf="entryForm.get('paid').invalid && entryForm.get('paid').touched">
-              <small *ngIf="entryForm.get('paid').hasError('required')">Dado obrigatório</small>
+              <small *ngIf="entryForm.get('paid').hasError('required')">Dado obrigatório!</small>
             </div>
         </div>
         <!--categoryId-->
